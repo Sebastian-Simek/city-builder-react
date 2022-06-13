@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-import SkylineDropdown from './SkylineDropdown';
-import WaterfrontDropdown from './WaterfrontDropdown';
-import CastleDropdown from './CastleDropdown';
-import SloganList from './SloganList';
-import SloganForm from './SloganForm';
-import CityNameInput from './CityNameInput';
-import City from './City';
+import PostCardDisplay from './PostCardDisplay';
+import PostCardForm from './PostCardForm';
 
 function App() {
   const [skylineID, setSkylineId] = useState(1);
@@ -14,30 +9,27 @@ function App() {
   const [castleId, setCastleId] = useState(1);
   const [cityName, setCityName] = useState('Portland');
   const [citySlogan, setCitySlogan] = useState(['The City of Roses']);
-  const [sloganForm, setSloganForm] = useState();
   
+  console.log('city slogan', citySlogan);
+
   return (
     <div className="App">
-      <City skylineID={skylineID}
+      <PostCardDisplay 
+        skylineID={skylineID}
         waterfrontId={waterfrontId}
-        castleId={castleId} />
+        citySlogan={citySlogan}
+        castleId={castleId}/>
       <h1>
         Welcome to {cityName}
       </h1>
-      <div className='bottom'>
-        <CityNameInput setCityName={setCityName}/>
-        <section className='dropdowns'>
-          <WaterfrontDropdown setWaterfrontId={setWaterfrontId}/>
-          <SkylineDropdown setSkylineId={setSkylineId}/>
-          <CastleDropdown setCastleId={setCastleId}/>  
-        </section>
-        <SloganForm 
-          setCitySlogan={setCitySlogan} 
-          citySlogan={citySlogan}
-          setSloganForm={setSloganForm}
-          sloganForm={sloganForm}/>
-        <SloganList citySlogan={citySlogan}/>
-      </div>
+      <PostCardForm 
+        setCityName={setCityName}
+        setWaterfrontId={setWaterfrontId}
+        setSkylineId={setSkylineId}
+        setCastleId={setCastleId}
+        setCitySlogan={setCitySlogan}
+        citySlogan={citySlogan}
+      />
     </div>
   );
 }
