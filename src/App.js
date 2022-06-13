@@ -17,17 +17,16 @@ function App() {
 
   return (
     <div className="App">
-      {/* here, the City component takes in skylineId, waterfrontId, castleId as props. It'll use those ids to render pictures correctly. */}
       <City skylineID={skylineID}
         waterfrontId={waterfrontId}
         castleId={castleId}
       />
       <h1>
-        {/* dynamically update the city name here using state */}
-        Welcome to beautiful Portland!
+        Welcome to {cityName}
       </h1>
       <div className='bottom'>
         {/* here, the CityNameInput component takes in the setCityName state handler function */}
+        <CityNameInput setCityName={setCityName}/>
         <section className='dropdowns'>
           {/* 
           render all three Dropdown components (WaterfrontDropdown, SkylineDropdown, CastleDropdown) here. 
