@@ -14,7 +14,7 @@ function App() {
   const [castleId, setCastleId] = useState(1);
   const [cityName, setCityName] = useState('Portland');
   const [citySlogan, setCitySlogan] = useState(['The City of Roses']);
-
+  
   return (
     <div className="App">
       <City skylineID={skylineID}
@@ -28,18 +28,14 @@ function App() {
         {/* here, the CityNameInput component takes in the setCityName state handler function */}
         <CityNameInput setCityName={setCityName}/>
         <section className='dropdowns'>
-          {/* 
-          render all three Dropdown components (WaterfrontDropdown, SkylineDropdown, CastleDropdown) here. 
-          
-          In each Dropdown, pass as props the state handler functions defined above, so that these child components can manipulate parent state 
-          */}
           <WaterfrontDropdown setWaterfrontId={setWaterfrontId}/>
           <SkylineDropdown setSkylineId={setSkylineId}/>
           <CastleDropdown setCastleId={setCastleId}/>  
         </section>
         {/* here, the SloganForm component takes in the setSlogans state handler function and the slogans array that live in state */}
         {/* here, the SloganList component takes the array of slogans that lives in state */}
-
+        <SloganForm setCitySlogan={setCitySlogan} citySlogan={citySlogan}/>
+        <SloganList citySlogan={citySlogan}/>
       </div>
     </div>
   );
