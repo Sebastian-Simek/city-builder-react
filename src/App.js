@@ -9,8 +9,8 @@ function App() {
   const [castleId, setCastleId] = useState(1);
   const [cityName, setCityName] = useState('Portland');
   const [citySlogan, setCitySlogan] = useState(['The City of Roses']);
+
   
-  console.log('city slogan', citySlogan);
 
   return (
     <div className="App">
